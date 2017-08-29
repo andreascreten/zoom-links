@@ -21,8 +21,7 @@ var slapp = Slapp({
 
 var sendMessage = function(msg, zoomId) {
   msg.say({
-    text: 'Hey, that looks like a Zoom ID! Join now: https://teamleader.zoom.us/j/' + zoomId + ".\n\nHave a good meeting, Andreas.",
-    as_user: true
+    text: 'Hey, that looks like a Zoom ID! Join now: https://teamleader.zoom.us/j/' + zoomId + ".\n\nHave a good meeting, Andreas."
   });
 }
 
