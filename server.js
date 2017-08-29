@@ -19,14 +19,9 @@ var slapp = Slapp({
 // Setup different handlers for messages
 //*********************************************
 
-slapp.message('3020791579', (msg) => {
-  msg.say('https://teamleader.zoom.us/j/' + msg.replace('-', ''))
-})
-
-
 // response to the user typing "help"
 slapp.message('^([0-9-]{9,12})$', (msg) => {
-  msg.say('https://teamleader.zoom.us/j/' + msg.replace('-', ''))
+  msg.say('https://teamleader.zoom.us/j/' + msg.toString().replace('-', ''))
 })
 
 
