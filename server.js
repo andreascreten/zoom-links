@@ -21,7 +21,8 @@ var slapp = Slapp({
 
 // response to the user typing "help"
 slapp.message('^([0-9-]{9,12})$', (msg) => {
-  msg.say('https://teamleader.zoom.us/j/' + msg.toString().replace('-', ''))
+  console.log(msg);
+  msg.say('https://teamleader.zoom.us/j/' + msg.body.replace('-', ''))
 })
 
 
