@@ -27,7 +27,7 @@ slapp.message('^([0-9-]{9,12})$', (msg) => {
 
 slapp.message('^\<tel\:[0-9-]{9,12}\|([0-9-]{9,12})\>', (msg) => {
   console.log(msg);
-  msg.say('https://teamleader.zoom.us/j/' + msg.body.event.text.replace('-', ''))
+  msg.say('https://teamleader.zoom.us/j/' + msg.body.event.text.replace('-', '').replace('>', '').replace('/^\<tel\:[0-9]{9,12}\|', ''))
 })
 
 // attach Slapp to express server
