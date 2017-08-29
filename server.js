@@ -20,8 +20,8 @@ var slapp = Slapp({
 //*********************************************
 
 // response to the user typing "help"
-slapp.message('^(0-9)+$', ['mention', 'direct_message'], (msg) => {
-  msg.say('https://teamleader.zoom.us/j/' + msg)
+slapp.message('^([0-9-]{9,12})$', ['mention', 'direct_message'], (msg) => {
+  msg.say('https://teamleader.zoom.us/j/' + msg.replace('-', ''))
 })
 
 
