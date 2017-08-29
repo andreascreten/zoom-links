@@ -19,16 +19,21 @@ var slapp = Slapp({
 // Setup different handlers for messages
 //*********************************************
 
+var sendMessage = function(msg, zoomId) {
+  msg.say('Hey, that looks like a Zoom ID! Join now: https://teamleader.zoom.us/j/' + zoomId + ".\n\nHave a good meeting, Andreas.")
+}
+
 // response to the user typing "help"
 slapp.message('^([0-9]{9,12})$', (msg) => {
-  console.log(msg);
-  msg.say('https://teamleader.zoom.us/j/' + msg.body.event.text)
+  sendMessage(msg, msg.body.event.text)
 })
 
 slapp.message('^\<tel\:[0-9-]{9,12}\|([0-9-]{9,12})\>', (msg) => {
-  console.log(msg.body.event.text.replace(/^\<tel\:[0-9-]{9,12}\|/, ''));
-  msg.say('https://teamleader.zoom.us/j/' + msg.body.event.text.replace(/^\<tel\:[0-9-]{9,12}\|/, '').replace('-', '').replace('-', '').replace('>', ''))
+  var zoomId = msg.body.event.text.replace(/^\<tel\:[0-9-]{9,12}\|/, '').replace('-', '').replace('-', '').replace('>', '');
+  sendMessage(msg, zoomId);
 })
+
+
 
 // attach Slapp to express server
 var server = slapp.attachToExpress(express())
